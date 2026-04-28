@@ -1,0 +1,2 @@
+1. Houve alguma alteração na ordem de execução das correções entre as diferentes execuções?
+Não. A ordem de execução se manteve a mesma, sendo a orde m de correção das classes sempre crescente.

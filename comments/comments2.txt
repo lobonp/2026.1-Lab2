@@ -1,0 +1,8 @@
+1.  Ao implementar esta solução, você chegou a compartilhar algum espaço na memória (variável) entre as diferentes threads filhas e mãe? Se sim, qual?
+Sim. Compartilhamos a lista de maiores notas entre as diferentes turmas. Essa lista foi implementada dentro da Classe como um atributo
+
+2. Isso pode levar a condições corridas? As múltiplas threads estão atualizando o mesmo espaço na memória?
+Sim. Enquanto uma thread está comparando as notas e atualizando o valor, ela pode ser interrompida por outra thread e a atualização da nota não ser consistente. Sim, elas estão atualizando o mesmo espaço na memória.
+
+3. Temos algum problema na solução desenvolvida? Por que sim ou por que não?
+Se temos uma região crítica sem o tratamento adequado, podemos gerar a inconsistência de verificação da maior nota da turma.
