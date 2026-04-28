@@ -93,6 +93,7 @@ if __name__ == "__main__":
     for class_id in semester.class_ids:
         t = threading.Thread(target=semester.process_grades, args=(class_id,))
         threads.append(t)
+        t.start()
     
     for t in threads:
         t.join()
