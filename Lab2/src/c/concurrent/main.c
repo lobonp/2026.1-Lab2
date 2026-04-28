@@ -169,6 +169,10 @@ int main(int argc, char *argv[]) {
     }
 
     for (int i = 0; i < semester.num_classes; i++) {
+        pthread_join(threads[i], NULL);
+    }
+
+    for (int i = 0; i < semester.num_classes; i++) {
         registry_to_string(&semester, semester.class_ids[i]);
     }
 
