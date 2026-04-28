@@ -16,6 +16,7 @@ class Classes:
         self._next_id_counter = 1
         self.class_ids: List[int] = list(range(1, num_classes + 1))
         self.num_students_per_class: int = num_students_per_class
+        self.highest_grades: List[str] = ["0.0" for i in range(num_classes)]
 
         self.semester_registry: Dict[str, Dict[str, Optional[Any]]] = self._generate_semester_registry()
 
@@ -55,6 +56,7 @@ class Classes:
             time.sleep(random.uniform(0.2, 0.5))
 
             grade = self._generate_student_grade()
+            if (grade >= self.highest_grades[class_id - 1]): self.highest_grades[class_id - 1] = grade
             self.semester_registry[student_id]["final_grade"] = grade
 
             print(f"{professor} corrected Student {student_id} from class {class_id} - Grade: {grade}")
@@ -73,6 +75,7 @@ class Classes:
                 f"class_id: {class_id}, "
                 f"final_grade: {self.semester_registry[student_id]['final_grade']}"
             )
+        print(f"highest_grade: {self.highest_grades[class_id - 1]}")
 
 
 if __name__ == "__main__":
